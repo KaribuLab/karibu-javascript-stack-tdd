@@ -4,7 +4,7 @@ Aplicación de ejemplo para TDD usando el stack MEVN
 
 ## Express
 
-Ejecutar pruebas en backend express:
+Ejecutar pruebas en backend express. Acceda al directorio `src/express` y luego ejecute el script:
 
 ```shell
 npm run test
