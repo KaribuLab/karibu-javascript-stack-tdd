@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  nuxt:
+    image: node:16
+    ports:
+      - 3000:3000
+    volumes:
+      - ./src/nuxt:/app/nuxt
+    user: node
+    entrypoint: ./env/node/entrypoint.sh
+    command: [ 'npm', 'run', 'dev' ]
+  express:
+    image: node:16
+    ports:
+      - 3100:3100
+    volumes:
+      - ./src/nuxt:/app/nuxt
+    user: node
+    entrypoint: ./env/node/entrypoint.sh
+    command: [ 'npm', 'run', 'dev' ]
+  mongo:
+    image: mongo:5
+    ports:
+      - 27017:27017
+    environment:
+      - MYSQL_DB_NAME=karibudb
+      - MYSQL_ROOT_PASSWORD=t00R.Tr3sD0zVn0
+      - MYSQL_USER_NAME=karibu
+      - MYSQL_USER_PASSWORD=K@r1bV.321
+    volumes:
+      - ./data/mongo:/var/lib/mysql
